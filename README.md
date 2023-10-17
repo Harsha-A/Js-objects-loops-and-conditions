@@ -70,7 +70,7 @@ In JavaScript, objects are a fundamental data structure and can have various met
 These are some of the commonly used methods and properties for working with objects in JavaScript. Objects in JavaScript are highly versatile and can be manipulated in various ways to manage and retrieve data.
 
 ===================
-
+# For loops
 
 There are several types of loops available in most programming languages, including `for`, `while`, and `do...while` loops. Each type of loop has its own use cases and syntax. Here, I'll explain these loops and provide examples in JavaScript:
 
@@ -170,6 +170,8 @@ These are some of the common types of loops in JavaScript. The choice of loop de
 
 ===============
 
+# forEach & map
+
 Certainly, here are examples of the `forEach` and `map` methods in JavaScript, which are commonly used for iterating over arrays:
 
 **`forEach` Method:**
@@ -218,7 +220,7 @@ Both methods are powerful and widely used in JavaScript for array manipulation, 
 
 ========
 
-
+# Order of execution
 
 Certainly! Here are 10 coding questions that involve `setImmediate`, `setTimeout`, Promises, and `process.nextTick()`. I'll provide the order in which they execute in `stdout`.
 
@@ -383,3 +385,138 @@ Set Immediate
 ```
 
 These questions and their execution orders help you understand the event loop and the order in which different asynchronous tasks are processed in JavaScript.
+
+
+
+================
+# ES6 Features 
+
+Certainly! Here are some key ES6 (ECMAScript 2015) features explained with examples for an interview:
+
+1. **Arrow Functions:**
+   Arrow functions provide a more concise syntax for writing functions.
+
+   ```javascript
+   // ES5
+   function add(a, b) {
+       return a + b;
+   }
+
+   // ES6
+   const add = (a, b) => a + b;
+   ```
+
+2. **Template Literals:**
+   Template literals allow embedding expressions inside strings.
+
+   ```javascript
+   // ES5
+   var name = "John";
+   var greeting = "Hello, " + name + "!";
+
+   // ES6
+   let name = "John";
+   let greeting = `Hello, ${name}!`;
+   ```
+
+3. **Destructuring Assignment:**
+   Destructuring allows you to extract values from arrays and objects easily.
+
+   ```javascript
+   // ES6
+   const [x, y] = [1, 2];
+   const { firstName, lastName } = { firstName: "John", lastName: "Doe" };
+   ```
+
+4. **Spread and Rest Operators:**
+   The spread operator spreads elements of an array or properties of an object, and the rest operator collects them.
+
+   ```javascript
+   // Spread operator
+   const arr1 = [1, 2];
+   const arr2 = [...arr1, 3, 4];
+
+   // Rest operator
+   function sum(...numbers) {
+       return numbers.reduce((total, num) => total + num, 0);
+   }
+   ```
+
+5. **Let and Const:**
+   `let` and `const` provide block-scoped variable declarations.
+
+   ```javascript
+   // ES5
+   var a = 5;
+
+   // ES6
+   let b = 5;
+   const c = 10;
+   ```
+
+6. **Classes:**
+   ES6 introduces class syntax for defining classes and constructor functions.
+
+   ```javascript
+   class Person {
+       constructor(name) {
+           this.name = name;
+       }
+
+       greet() {
+           return `Hello, my name is ${this.name}.`;
+       }
+   }
+   ```
+
+7. **Promises:**
+   Promises provide a better way to work with asynchronous operations.
+
+   ```javascript
+   function fetchData() {
+       return new Promise((resolve, reject) => {
+           // Asynchronous operation
+           if (/* success */) {
+               resolve(data);
+           } else {
+               reject(error);
+           }
+       });
+   }
+   ```
+
+8. **Default Parameters:**
+   You can set default values for function parameters.
+
+   ```javascript
+   function greet(name = "World") {
+       return `Hello, ${name}!`;
+   }
+   ```
+
+9. **Modules:**
+   ES6 introduces a module system to encapsulate and organize code.
+
+   ```javascript
+   // Export
+   export function add(a, b) {
+       return a + b;
+   }
+
+   // Import
+   import { add } from "./math";
+   ```
+
+10. **Map and Set:**
+    Map and Set data structures provide efficient ways to store and manipulate data.
+
+    ```javascript
+    const myMap = new Map();
+    myMap.set("key", "value");
+
+    const mySet = new Set();
+    mySet.add(1);
+    mySet.add(2);
+    ```
+
+These are some of the key ES6 features, which have become standard in modern JavaScript development. Familiarity with these features can be a valuable asset during interviews.
