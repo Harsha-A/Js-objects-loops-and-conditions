@@ -1,4 +1,4 @@
-# Object.methods / For Loops 
+# Js-objects-loops-and-conditions 
 Object related methods
 
 
