@@ -213,3 +213,173 @@ Key differences:
 - `map` is used to create a new array by applying a function to each element of an existing array. It returns a modified version of the original array.
 
 Both methods are powerful and widely used in JavaScript for array manipulation, but they serve different purposes. Use `forEach` when you need to iterate over elements and perform actions, and use `map` when you want to create a new array based on the original array.
+
+
+
+========
+
+
+
+Certainly! Here are 10 coding questions that involve `setImmediate`, `setTimeout`, Promises, and `process.nextTick()`. I'll provide the order in which they execute in `stdout`.
+
+**Question 1:**
+```javascript
+console.log("Start");
+setImmediate(() => console.log("Set Immediate"));
+console.log("End");
+```
+**Order of Execution 1:**
+```
+Start
+End
+Set Immediate
+```
+
+**Question 2:**
+```javascript
+console.log("Start");
+setTimeout(() => console.log("Set Timeout"), 0);
+console.log("End");
+```
+**Order of Execution 2:**
+```
+Start
+End
+Set Timeout
+```
+
+**Question 3:**
+```javascript
+console.log("Start");
+setTimeout(() => console.log("Set Timeout 1"), 0);
+setImmediate(() => console.log("Set Immediate"));
+console.log("End");
+```
+**Order of Execution 3:**
+```
+Start
+End
+Set Timeout 1
+Set Immediate
+```
+
+**Question 4:**
+```javascript
+console.log("Start");
+setImmediate(() => console.log("Set Immediate 1"));
+setTimeout(() => console.log("Set Timeout"), 0);
+setImmediate(() => console.log("Set Immediate 2"));
+console.log("End");
+```
+**Order of Execution 4:**
+```
+Start
+End
+Set Timeout
+Set Immediate 1
+Set Immediate 2
+```
+
+**Question 5:**
+```javascript
+console.log("Start");
+setTimeout(() => console.log("Set Timeout 1"), 0);
+process.nextTick(() => console.log("Next Tick"));
+setImmediate(() => console.log("Set Immediate"));
+console.log("End");
+```
+**Order of Execution 5:**
+```
+Start
+End
+Next Tick
+Set Timeout 1
+Set Immediate
+```
+
+**Question 6:**
+```javascript
+console.log("Start");
+Promise.resolve().then(() => console.log("Promise 1"));
+setTimeout(() => console.log("Set Timeout"), 0);
+Promise.resolve().then(() => console.log("Promise 2"));
+console.log("End");
+```
+**Order of Execution 6:**
+```
+Start
+End
+Promise 1
+Promise 2
+Set Timeout
+```
+
+**Question 7:**
+```javascript
+console.log("Start");
+setTimeout(() => console.log("Set Timeout 1"), 0);
+Promise.resolve().then(() => console.log("Promise"));
+setTimeout(() => console.log("Set Timeout 2"), 0);
+console.log("End");
+```
+**Order of Execution 7:**
+```
+Start
+End
+Promise
+Set Timeout 1
+Set Timeout 2
+```
+
+**Question 8:**
+```javascript
+console.log("Start");
+setImmediate(() => console.log("Set Immediate"));
+Promise.resolve().then(() => console.log("Promise"));
+setImmediate(() => console.log("Set Immediate 2"));
+console.log("End");
+```
+**Order of Execution 8:**
+```
+Start
+End
+Promise
+Set Immediate
+Set Immediate 2
+```
+
+**Question 9:**
+```javascript
+console.log("Start");
+setImmediate(() => console.log("Set Immediate 1"));
+process.nextTick(() => console.log("Next Tick"));
+setImmediate(() => console.log("Set Immediate 2"));
+console.log("End");
+```
+**Order of Execution 9:**
+```
+Start
+End
+Next Tick
+Set Immediate 1
+Set Immediate 2
+```
+
+**Question 10:**
+```javascript
+console.log("Start");
+setTimeout(() => console.log("Set Timeout"), 0);
+setImmediate(() => console.log("Set Immediate"));
+process.nextTick(() => console.log("Next Tick"));
+console.log("End");
+```
+**Order of Execution 10:**
+```
+Start
+End
+Next Tick
+Set Timeout
+Set Immediate
+```
+
+These questions and their execution orders help you understand the event loop and the order in which different asynchronous tasks are processed in JavaScript.
