@@ -520,3 +520,42 @@ Certainly! Here are some key ES6 (ECMAScript 2015) features explained with examp
     ```
 
 These are some of the key ES6 features, which have become standard in modern JavaScript development. Familiarity with these features can be a valuable asset during interviews.
+
+
+====
+# Deep Clone & Shallow Clone
+
+In JavaScript, when you clone an object, you can perform either a deep clone or a shallow clone, depending on how you want to duplicate the object's structure and values. Here's a detailed explanation of both concepts:
+
+**Shallow Clone:**
+A shallow clone creates a new object that is a copy of the original object, but it does not create copies of nested objects or their properties. Instead, it copies references to nested objects. In other words, the top-level object is duplicated, but the nested objects are shared between the original and the clone.
+
+For example:
+```javascript
+const originalObject = { a: 1, b: { c: 2 } };
+const shallowClone = { ...originalObject };
+
+shallowClone.b.c = 3;
+
+console.log(originalObject.b.c); // 3 (changes the original)
+```
+
+In the above code, `shallowClone` is a new object, but both the `originalObject.b` and `shallowClone.b` reference the same nested object.
+
+**Deep Clone:**
+A deep clone, on the other hand, creates a completely new object with copies of all nested objects and their properties. It results in a completely independent copy of the original object, including all levels of nesting.
+
+To perform a deep clone, you can use various techniques, such as recursion or specialized libraries like Lodash's `_.cloneDeep()` or the `JSON.parse(JSON.stringify(obj))` approach. Here's an example using the `JSON.parse(JSON.stringify(obj))` method:
+
+```javascript
+const originalObject = { a: 1, b: { c: 2 } };
+const deepClone = JSON.parse(JSON.stringify(originalObject));
+
+deepClone.b.c = 3;
+
+console.log(originalObject.b.c); // 2 (original is not affected)
+```
+
+In this case, `deepClone` is a new object, and changes to the nested object do not affect the original.
+
+Keep in mind that deep cloning can be computationally expensive, especially for complex objects with many levels of nesting or large data structures. Shallow cloning is more efficient but may not provide the isolation needed if you want to make independent modifications to objects and their nested structures. Your choice between deep and shallow cloning should depend on your specific use case and performance considerations.
