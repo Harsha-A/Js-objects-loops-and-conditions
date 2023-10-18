@@ -667,3 +667,88 @@ console.log(originalObject.b.c); // 2 (original is not affected)
 In this case, `deepClone` is a new object, and changes to the nested object do not affect the original.
 
 Keep in mind that deep cloning can be computationally expensive, especially for complex objects with many levels of nesting or large data structures. Shallow cloning is more efficient but may not provide the isolation needed if you want to make independent modifications to objects and their nested structures. Your choice between deep and shallow cloning should depend on your specific use case and performance considerations.
+
+
+
+============
+
+
+JavaScript arrays have a variety of methods for manipulating and working with their elements. Here are some common methods available for arrays with examples:
+
+1. **`push()`** - Adds one or more elements to the end of an array and returns the new length.
+   ```javascript
+   const fruits = ['apple', 'banana'];
+   const newLength = fruits.push('orange');
+   // fruits is now ['apple', 'banana', 'orange']
+   ```
+
+2. **`pop()`** - Removes the last element from an array and returns that element.
+   ```javascript
+   const fruits = ['apple', 'banana', 'orange'];
+   const lastFruit = fruits.pop();
+   // lastFruit is 'orange', fruits is now ['apple', 'banana']
+   ```
+
+3. **`shift()`** - Removes the first element from an array and returns that element.
+   ```javascript
+   const fruits = ['apple', 'banana', 'orange'];
+   const firstFruit = fruits.shift();
+   // firstFruit is 'apple', fruits is now ['banana', 'orange']
+   ```
+
+4. **`unshift()`** - Adds one or more elements to the beginning of an array and returns the new length.
+   ```javascript
+   const fruits = ['banana', 'orange'];
+   const newLength = fruits.unshift('apple');
+   // fruits is now ['apple', 'banana', 'orange']
+   ```
+
+5. **`concat()`** - Combines two or more arrays and returns a new array.
+   ```javascript
+   const arr1 = [1, 2];
+   const arr2 = [3, 4];
+   const combined = arr1.concat(arr2);
+   // combined is [1, 2, 3, 4]
+   ```
+
+6. **`join()`** - Joins all elements of an array into a string.
+   ```javascript
+   const fruits = ['apple', 'banana', 'orange'];
+   const fruitString = fruits.join(', ');
+   // fruitString is 'apple, banana, orange'
+   ```
+
+7. **`slice()`** - Extracts a section of an array and returns a new array.
+   ```javascript
+   const fruits = ['apple', 'banana', 'orange', 'grape'];
+   const slicedFruits = fruits.slice(1, 3);
+   // slicedFruits is ['banana', 'orange']
+   ```
+
+8. **`splice()`** - Changes the contents of an array by removing, replacing, or adding elements.
+   ```javascript
+   const fruits = ['apple', 'banana', 'orange'];
+   const removedFruits = fruits.splice(1, 1, 'grape', 'kiwi');
+   // removedFruits is ['banana'], fruits is now ['apple', 'grape', 'kiwi', 'orange']
+   ```
+
+9. **`forEach()`** - Executes a provided function once for each array element.
+   ```javascript
+   const numbers = [1, 2, 3];
+   numbers.forEach(function (num) {
+       console.log(num * 2);
+   });
+   // Outputs: 2, 4, 6
+   ```
+
+10. **`map()`** - Creates a new array with the results of calling a provided function on each element.
+    ```javascript
+    const numbers = [1, 2, 3];
+    const doubled = numbers.map(function (num) {
+        return num * 2;
+    });
+    // doubled is [2, 4, 6]
+    ```
+
+These are just a few examples of array methods in JavaScript. Arrays have a rich set of methods for searching, filtering, and manipulating data, making them versatile and powerful data structures.
+
