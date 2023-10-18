@@ -671,7 +671,7 @@ Keep in mind that deep cloning can be computationally expensive, especially for 
 
 
 ============
-
+# Js array methods
 
 JavaScript arrays have a variety of methods for manipulating and working with their elements. Here are some common methods available for arrays with examples:
 
@@ -752,3 +752,81 @@ JavaScript arrays have a variety of methods for manipulating and working with th
 
 These are just a few examples of array methods in JavaScript. Arrays have a rich set of methods for searching, filtering, and manipulating data, making them versatile and powerful data structures.
 
+=======
+# Higher Order Functions
+
+Higher-order functions are functions that can take other functions as arguments, return functions, or both. They are a powerful concept in functional programming. Here are some examples of higher-order functions in JavaScript:
+
+1. **`map()`** - A function that takes another function and applies it to each element of an array, returning a new array with the results.
+   ```javascript
+   const numbers = [1, 2, 3];
+   const doubled = numbers.map(function (num) {
+       return num * 2;
+   });
+   // doubled is [2, 4, 6]
+   ```
+
+2. **`filter()`** - A function that takes a predicate function and returns a new array containing all elements for which the predicate returns `true`.
+   ```javascript
+   const numbers = [1, 2, 3, 4, 5];
+   const evenNumbers = numbers.filter(function (num) {
+       return num % 2 === 0;
+   });
+   // evenNumbers is [2, 4]
+   ```
+
+3. **`reduce()`** - A function that takes a combining function and applies it to the elements of an array, accumulating a single result.
+   ```javascript
+   const numbers = [1, 2, 3, 4, 5];
+   const sum = numbers.reduce(function (acc, num) {
+       return acc + num;
+   }, 0);
+   // sum is 15
+   ```
+
+4. **`sort()`** - A function that takes a comparison function to sort elements in an array based on a specific criterion.
+   ```javascript
+   const words = ['apple', 'banana', 'cherry'];
+   const sortedWords = words.sort(function (a, b) {
+       return a.localeCompare(b);
+   });
+   // sortedWords is ['apple', 'banana', 'cherry']
+   ```
+
+5. **`forEach()`** - A function that iterates over an array and applies a given function to each element.
+   ```javascript
+   const colors = ['red', 'green', 'blue'];
+   colors.forEach(function (color) {
+       console.log(`Color: ${color}`);
+   });
+   // Outputs: Color: red, Color: green, Color: blue
+   ```
+
+6. **`find()`** - A function that takes a testing function and returns the first element in an array that satisfies the test.
+   ```javascript
+   const numbers = [1, 2, 3, 4, 5];
+   const firstEven = numbers.find(function (num) {
+       return num % 2 === 0;
+   });
+   // firstEven is 2
+   ```
+
+7. **`every()`** - A function that takes a testing function and returns `true` if all elements in an array pass the test.
+   ```javascript
+   const numbers = [2, 4, 6, 8, 10];
+   const allEven = numbers.every(function (num) {
+       return num % 2 === 0;
+   });
+   // allEven is true
+   ```
+
+8. **`some()`** - A function that takes a testing function and returns `true` if at least one element in an array passes the test.
+   ```javascript
+   const numbers = [1, 3, 5, 6, 7];
+   const hasEven = numbers.some(function (num) {
+       return num % 2 === 0;
+   });
+   // hasEven is true
+   ```
+
+These are just a few examples of higher-order functions in JavaScript. They promote code reusability and allow for more expressive and declarative code when working with arrays and data.
