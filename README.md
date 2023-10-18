@@ -165,17 +165,23 @@ There are several types of loops available in most programming languages, includ
    }
    ```
 
-const person = {
-  name: 'John Doe',
-  age: 30,
-  address: '123 Main Street'
-};
+```javascript
+const person = { name: 'John Doe', age: 30, address: '123 Main Street' };
 
 const entries = Object.entries(person);
 
 for (const [key, value] of entries) {
   console.log(`${key}: ${value}`);
 }
+```
+
+This will log the key-value pairs of the `person` object using a template literal. The output will look like:
+
+```
+name: John Doe
+age: 30
+address: 123 Main Street
+```
 
 These are some of the common types of loops in JavaScript. The choice of loop depends on the specific requirements of your program and the data you are working with.
 
