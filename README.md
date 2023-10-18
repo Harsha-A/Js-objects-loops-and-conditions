@@ -408,20 +408,14 @@ Certainly! Here are the questions and answers with the same content as your prev
 
 ```javascript
 console.log("Start");
-
 Promise.resolve().then(() => console.log("Promise 1"));
-
 setTimeout(() => console.log("Set Timeout"), 0);
-
 setImmediate(() => console.log("Set Immediate"));
-
 process.nextTick(() => console.log("Next Tick"));
-
 Promise.resolve().then(() => console.log("Promise 2"));
-
 console.log("End");
 ```
-**Answer 11:**
+**Order of Execution 11:**
 ```plaintext
 Start
 End
@@ -436,18 +430,13 @@ Set Immediate
 
 ```javascript
 console.log("Start");
-
 Promise.resolve().then(() => console.log("Promise 1"));
-
 setImmediate(() => console.log("Set Immediate 1"));
-
 Promise.resolve().then(() => console.log("Promise 2"));
-
 setImmediate(() => console.log("Set Immediate 2"));
-
 console.log("End");
 ```
-**Answer 12:**
+**Order of Execution 12:**
 
 ```plaintext
 Start
@@ -463,19 +452,14 @@ Set Immediate 2
 
 ```javascript
 console.log("Start");
-
 Promise.resolve().then(() => console.log("Promise 1"));
-
 process.nextTick(() => console.log("Next Tick 1"));
-
 Promise.resolve().then(() => console.log("Promise 2"));
-
 process.nextTick(() => console.log("Next Tick 2"));
-
 console.log("End");
 ```
 
-**Answer 13:**
+**Order of Execution 13:**
 
 ```plaintext
 Start
@@ -486,6 +470,32 @@ Promise 1
 Promise 2
 ```
 
+
+**Question 14:**
+
+```javascript
+console.log("Start");
+Promise.resolve().then(() => console.log("Promise 1"));
+process.nextTick(() => console.log("Next Tick 1"));
+setTimeout(() => console.log("Set Timeout"), 0);
+setImmediate(() => console.log("Set Immediate"));
+Promise.resolve().then(() => console.log("Promise 2"));
+process.nextTick(() => console.log("Next Tick 2"));
+console.log("End");
+```
+
+**Order of Execution 14:**
+
+```plaintext
+Start
+End
+Next Tick 1
+Next Tick 2
+Promise 1
+Promise 2
+Set Timeout
+Set Immediate
+```
 ================
 # ES6 Features 
 
