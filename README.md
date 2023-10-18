@@ -402,9 +402,89 @@ Set Timeout
 Set Immediate
 ```
 
-These questions and their execution orders help you understand the event loop and the order in which different asynchronous tasks are processed in JavaScript.
+Certainly! Here are the questions and answers with the same content as your previous questions, numbered as 11, 12, and 13:
+
+**Question 11:**
+
+```javascript
+console.log("Start");
+
+Promise.resolve().then(() => console.log("Promise 1"));
+
+setTimeout(() => console.log("Set Timeout"), 0);
+
+setImmediate(() => console.log("Set Immediate"));
+
+process.nextTick(() => console.log("Next Tick"));
+
+Promise.resolve().then(() => console.log("Promise 2"));
+
+console.log("End");
+```
+**Answer 11:**
+```plaintext
+Start
+End
+Next Tick
+Promise 1
+Promise 2
+Set Timeout
+Set Immediate
+```
+
+**Question 12:**
+
+```javascript
+console.log("Start");
+
+Promise.resolve().then(() => console.log("Promise 1"));
+
+setImmediate(() => console.log("Set Immediate 1"));
+
+Promise.resolve().then(() => console.log("Promise 2"));
+
+setImmediate(() => console.log("Set Immediate 2"));
+
+console.log("End");
+```
+**Answer 12:**
+
+```plaintext
+Start
+End
+Promise 1
+Promise 2
+Set Immediate 1
+Set Immediate 2
+```
 
 
+**Question 13:**
+
+```javascript
+console.log("Start");
+
+Promise.resolve().then(() => console.log("Promise 1"));
+
+process.nextTick(() => console.log("Next Tick 1"));
+
+Promise.resolve().then(() => console.log("Promise 2"));
+
+process.nextTick(() => console.log("Next Tick 2"));
+
+console.log("End");
+```
+
+**Answer 13:**
+
+```plaintext
+Start
+End
+Next Tick 1
+Next Tick 2
+Promise 1
+Promise 2
+```
 
 ================
 # ES6 Features 
