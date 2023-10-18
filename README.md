@@ -165,6 +165,18 @@ There are several types of loops available in most programming languages, includ
    }
    ```
 
+const person = {
+  name: 'John Doe',
+  age: 30,
+  address: '123 Main Street'
+};
+
+const entries = Object.entries(person);
+
+for (const [key, value] of entries) {
+  console.log(`${key}: ${value}`);
+}
+
 These are some of the common types of loops in JavaScript. The choice of loop depends on the specific requirements of your program and the data you are working with.
 
 
