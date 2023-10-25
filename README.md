@@ -1,6 +1,11 @@
 # Js-objects-loops-and-conditions 
 Object related methods
 
+JSON (JavaScript Object Notation) is a language-agnostic format for storing and transferring data. It's based on JavaScript objects. JSON is used primarily to transmit data between a server and web application. 
+A JavaScript object is a variable that stores data in key-value pairs. You can create an object using object literal syntax.
+
+(JSON) JSON.parse ---> JS Obj
+(JS Obj) JSON.stringify ---> JSON
 
 In JavaScript, objects are a fundamental data structure and can have various methods and properties. Here are some commonly used methods that you can perform on objects, along with examples:
 
