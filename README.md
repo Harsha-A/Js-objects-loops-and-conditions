@@ -1391,3 +1391,62 @@ console.log(restInfo); // { city: 'Paris', gender: 'Female' }
 ```
 
 These examples demonstrate the versatile use of the spread and rest operators in JavaScript, whether it's for working with arrays, function arguments, or object properties. They provide flexibility and convenience in handling data structures and function arguments.
+
+
+==========
+
+# this keyword with arrow => function
+
+Arrow functions in JavaScript are a more concise way to write functions compared to traditional function expressions. Arrow functions also have a unique behavior when it comes to the `this` keyword, which is what we'll explain in this example.
+
+Traditional functions have their own `this` context, which can vary depending on how they are called (e.g., through an object, as a constructor, etc.). Arrow functions, on the other hand, capture the `this` value from their enclosing (containing) context. This can lead to some differences in behavior, especially when arrow functions are used within objects or classes.
+
+Here's an example illustrating the behavior of arrow functions and the `this` keyword:
+
+```javascript
+// Example 1: Arrow Function and this
+
+const regularFunction = function () {
+  console.log("Regular Function this:", this);
+};
+
+const arrowFunction = () => {
+  console.log("Arrow Function this:", this);
+};
+
+const myObject = {
+  name: "John",
+  regularFunction: regularFunction,
+  arrowFunction: arrowFunction,
+};
+
+regularFunction(); // Global object (e.g., 'window' in a browser)
+arrowFunction(); // Global object (e.g., 'window' in a browser)
+myObject.regularFunction(); // myObject
+myObject.arrowFunction(); // Global object (e.g., 'window' in a browser)
+
+// Example 2: Arrow Function within an Object
+
+const car = {
+  brand: "Toyota",
+  start: function () {
+    console.log("Start function this:", this);
+  },
+  stop: () => {
+    console.log("Arrow function this:", this);
+  },
+};
+
+car.start(); // car object
+car.stop();  // Global object (e.g., 'window' in a browser)
+```
+
+In this example:
+
+1. We define a regular function (`regularFunction`) and an arrow function (`arrowFunction`). When we call these functions directly, their behavior with respect to `this` is demonstrated. The `this` value for arrow functions is based on the enclosing context, which is typically the global object (e.g., `window` in a browser).
+
+2. We create an object `myObject` with properties `name`, `regularFunction`, and `arrowFunction`, and we call both types of functions from this object. The regular function has its `this` context bound to the object (`myObject`), while the arrow function captures the global object, which is the default behavior for arrow functions.
+
+3. In Example 2, we define an object `car` with two methods: `start` as a regular function and `stop` as an arrow function. The `start` method's `this` is the object itself, while the `stop` method's `this` is the global object because arrow functions do not have their own `this` context.
+
+It's important to be aware of the different behavior of arrow functions and traditional functions when working with the `this` keyword. Arrow functions are particularly useful in scenarios where you want to preserve the `this` context from the enclosing scope.
