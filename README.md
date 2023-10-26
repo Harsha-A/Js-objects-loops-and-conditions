@@ -993,9 +993,70 @@ async function fetchData() {
 fetchData();
 ```
 
-These are some of the fundamental Promise methods and techniques in Node.js. They provide a powerful way to work with asynchronous operations, making your code more readable and maintainable.
 
+In Node.js and JavaScript, `Promise.allSettled` and `Promise.finally` are two methods for working with promises. Let's explore each of them with examples:
 
+**1. `Promise.allSettled`:**
+
+`Promise.allSettled` is a method that takes an array of promises and returns a new promise that is fulfilled with an array of result objects, one for each input promise. Each result object has a `status` property indicating whether the promise was fulfilled, rejected, or resolved. It also includes a `value` or `reason` property, depending on the status.
+
+Example:
+
+```javascript
+const promise1 = Promise.resolve(42);
+const promise2 = Promise.reject("Error occurred");
+const promise3 = new Promise((resolve) => setTimeout(resolve, 1000, "Delayed result"));
+
+Promise.allSettled([promise1, promise2, promise3])
+  .then((results) => {
+    results.forEach((result, index) => {
+      if (result.status === "fulfilled") {
+        console.log(`Promise ${index + 1} resolved with value:`, result.value);
+      } else if (result.status === "rejected") {
+        console.log(`Promise ${index + 1} rejected with reason:`, result.reason);
+      }
+    });
+  });
+```
+
+In this example, `Promise.allSettled` is used to handle multiple promises. It logs the status and result of each promise, whether fulfilled or rejected.
+
+**2. `Promise.finally`:**
+
+`Promise.finally` is a method that allows you to specify a callback to be executed when a promise is settled, regardless of whether it was fulfilled or rejected. This is useful for cleanup operations that should be performed no matter the outcome of the promise.
+
+Example:
+
+```javascript
+const fetchData = () => {
+  return new Promise((resolve, reject) => {
+    // Simulating an asynchronous operation
+    setTimeout(() => {
+      const success = true;
+      if (success) {
+        resolve("Data retrieved successfully");
+      } else {
+        reject("Error occurred while fetching data");
+      }
+    }, 2000);
+  });
+};
+
+fetchData()
+  .then((data) => {
+    console.log(data);
+  })
+  .catch((error) => {
+    console.error(error);
+  })
+  .finally(() => {
+    console.log("Promise settled, cleanup or final actions here.");
+  });
+```
+
+In this example, the `fetchData` function returns a promise that simulates fetching data. The `finally` method is used to log a message indicating that the promise has settled, and you can perform cleanup or final actions within the `finally` block.
+
+`Promise.finally` is especially useful when you want to ensure that certain code (e.g., resource cleanup, logging, or finalization) is executed regardless of whether the promise is fulfilled or rejected. It's a good practice for managing resources and handling post-promise operations.
 
 ==========
 # let var and const
