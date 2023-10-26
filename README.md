@@ -519,6 +519,30 @@ Set Timeout 10secs
 ```
 
 
+**Question 16:**
+
+```javascript
+console.log("Start");
+Promise.resolve().then(() => console.log("Promise 1"));
+setTimeout(() => console.log("Set Timeout"), 10000);
+setImmediate(() => console.log("Set Immediate"));
+process.nextTick(() => console.log("Next Tick"));
+Promise.resolve().then(() => console.log("Promise 2"));
+console.log("End");
+```
+**Order of Execution 16:**
+```plaintext
+Start
+End
+Next Tick
+Promise 1
+Promise 2
+Set Immediate
+Set Timeout
+
+Order of Set Timeout changes because of 10 secs delay
+```
+
 ================
 # ES6 Features 
 
