@@ -1160,4 +1160,85 @@ In this example, we declare a constant `pi` within a function to calculate the a
 
 Using `const` helps make your code more robust and self-documenting by indicating that a variable should not be changed after its initial assignment. However, keep in mind that while the variable itself is constant, it doesn't make the referenced data (e.g., properties of an object) immutable, as demonstrated in the second example. To achieve immutability for complex data structures, you would need to use techniques like deep freezing or libraries designed for immutable data.
 
+=====
 
+
+# How to merge/concatenate objects in js
+
+
+Certainly, I'll include the code you provided along with the previous solutions for merging objects in JavaScript. Here's the full set of solutions:
+
+**1. Using the Spread Operator (`...`):**
+
+```javascript
+const object1 = { a: 1, b: 2 };
+const object2 = { b: 3, c: 4 };
+
+const combinedObject = { ...object1, ...object2 };
+console.log(combinedObject);
+// Output: { a: 1, b: 3, c: 4 }
+```
+
+**2. Using `Object.assign()`:**
+
+```javascript
+const object1 = { a: 1, b: 2 };
+const object2 = { b: 3, c: 4 };
+
+const combinedObject = Object.assign({}, object1, object2);
+console.log(combinedObject);
+// Output: { a: 1, b: 3, c: 4 }
+```
+
+**3. Using Object Spread Syntax (ESNext, Requires Babel):**
+
+```javascript
+const object1 = { a: 1, b: 2 };
+const object2 = { b: 3, c: 4 };
+
+const combinedObject = { ...object1, ...object2 };
+console.log(combinedObject);
+// Output: { a: 1, b: 3, c: 4 }
+```
+
+**4. Using Lodash (A Utility Library):**
+
+```javascript
+const _ = require('lodash');
+
+const object1 = { a: 1, b: 2 };
+const object2 = { b: 3, c: 4 };
+
+const combinedObject = _.merge(object1, object2);
+console.log(combinedObject);
+// Output: { a: 1, b: 3, c: 4 }
+```
+
+**5. Manual Object Merging Using a Loop:**
+
+```javascript
+const obj1 = {
+  name: "John Doe",
+  age: 30,
+};
+
+const obj2 = {
+  city: "New York",
+  state: "NY",
+};
+
+const mergedObj = {};
+
+for (const key in obj1) {
+  mergedObj[key] = obj1[key];
+}
+
+for (const key in obj2) {
+  mergedObj[key] = obj2[key];
+}
+
+console.log(mergedObj);
+// Output: { name: 'John Doe', age: 30, city: 'New York', state: 'NY' }
+```
+
+You can choose the method that best suits your coding style and requirements for merging objects in your JavaScript code.
