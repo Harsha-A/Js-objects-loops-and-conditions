@@ -501,6 +501,24 @@ Promise 2
 Set Timeout
 Set Immediate
 ```
+
+
+**Question 15:**
+```javascript
+console.log("Start");
+setTimeout(() => console.log("Set Timeout 10secs"), 10000); //10 seconds
+setImmediate(() => console.log("Set Immediate"));
+console.log("End");
+```
+**Order of Execution 15:**
+```
+Start
+End
+Set Immediate
+Set Timeout 10secs
+```
+
+
 ================
 # ES6 Features 
 
